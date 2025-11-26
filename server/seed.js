@@ -37,7 +37,7 @@ async function seedDatabase() {
   console.log('✓ Users table ready')
 
   // Check if test user already exists
-  const existingUser = db.exec('SELECT * FROM users WHERE email = ?', ['test@example.com'])
+  const existingUser = db.exec('SELECT * FROM users WHERE email = ?', ['admin@tectijuana.edu.mx'])
   
   if (existingUser[0]?.values.length > 0) {
     console.log('⚠ Test user already exists, skipping...')
@@ -46,10 +46,10 @@ async function seedDatabase() {
     const hashedPassword = await bcrypt.hash('password123', 10)
     db.run(
       'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-      ['Test User', 'test@example.com', hashedPassword]
+      ['Test User', 'admin@tectijuana.edu.mx', hashedPassword]
     )
     console.log('✓ Test user created')
-    console.log('  Email: test@example.com')
+    console.log('  Email: admin@tectijuana.edu.mx')
     console.log('  Password: password123')
   }
 

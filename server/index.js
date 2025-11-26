@@ -150,11 +150,12 @@ app.get('/api/auth/me', authenticateToken, (req, res) => {
 // User CRUD Routes
 app.get('/api/users', authenticateToken, (req, res) => {
   try {
-    const result = db.exec('SELECT id, name, email, created_at FROM users')
+    const result = db.exec('SELECT id, name, email, password, created_at FROM users')
     const users = result[0]?.values.map(row => ({
       id: row[0],
       name: row[1],
       email: row[2],
+      password: row[3],
       created_at: row[3]
     })) || []
     res.json(users)

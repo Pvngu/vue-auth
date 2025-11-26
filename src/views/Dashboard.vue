@@ -31,6 +31,7 @@
                 <TableHead>ID</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead>Password</TableHead>
                 <TableHead class="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -39,6 +40,7 @@
                 <TableCell>{{ user.id }}</TableCell>
                 <TableCell>{{ user.name }}</TableCell>
                 <TableCell>{{ user.email }}</TableCell>
+                <TableCell>{{ user.password }}</TableCell>
                 <TableCell class="text-right">
                   <div class="flex justify-end gap-2">
                     <Button variant="ghost" size="sm" @click="openEditDialog(user)">
