@@ -46,7 +46,7 @@
                     <Button variant="ghost" size="sm" @click="openEditDialog(user)">
                       <Pencil class="h-4 w-4" />
                     </Button>
-                    <Button variant="ghost" size="sm" @click="deleteUser(user.id)">
+                    <Button variant="ghost" size="sm" @click="deleteUser(user.id)" v-if="user.id !== 1">
                       <Trash2 class="h-4 w-4" />
                     </Button>
                   </div>
@@ -136,6 +136,7 @@ interface User {
   id: number
   name: string
   email: string
+  password: string
 }
 
 const router = useRouter()

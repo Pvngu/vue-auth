@@ -36,19 +36,19 @@ async function seedDatabase() {
   `)
   console.log('✓ Users table ready')
 
-  // Check if test user already exists
+  // Check if usuario admin already exists
   const existingUser = db.exec('SELECT * FROM users WHERE email = ?', ['admin@tectijuana.edu.mx'])
   
   if (existingUser[0]?.values.length > 0) {
-    console.log('⚠ Test user already exists, skipping...')
+    console.log('⚠ usuario admin already exists, skipping...')
   } else {
-    // Create test user
+    // Create usuario admin
     const hashedPassword = await bcrypt.hash('password123', 10)
     db.run(
       'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-      ['Test User', 'admin@tectijuana.edu.mx', hashedPassword]
+      ['usuario admin', 'admin@tectijuana.edu.mx', hashedPassword]
     )
-    console.log('✓ Test user created')
+    console.log('✓ usuario admin created')
     console.log('  Email: admin@tectijuana.edu.mx')
     console.log('  Password: password123')
   }
