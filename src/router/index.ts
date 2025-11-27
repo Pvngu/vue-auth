@@ -3,6 +3,10 @@ import { useAuthStore } from '@/stores/auth'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import Users from '@/views/Users.vue'
+import Categories from '@/views/Categories.vue'
+import Items from '@/views/Items.vue'
+import Roles from '@/views/Roles.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,7 +31,33 @@ const router = createRouter({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: 'users',
+          name: 'Users',
+          component: Users,
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'categories',
+          name: 'Categories',
+          component: Categories,
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'items',
+          name: 'Items',
+          component: Items,
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'roles',
+          name: 'Roles',
+          component: Roles,
+          meta: { requiresAuth: true }
+        }
+      ]
     }
   ]
 })
